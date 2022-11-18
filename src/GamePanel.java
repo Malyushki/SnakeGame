@@ -47,6 +47,10 @@ GameMenu menu = new GameMenu();
     }
 
     public void draw(Graphics g) {
+        if (!isPlaying) {
+            menu.draw(g);
+            isPlaying = true;
+        } else {
 
             if (running) {
           /*  for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
@@ -81,14 +85,10 @@ GameMenu menu = new GameMenu();
 
 
             }
-            if (!isPlaying) {
-                System.out.println("LOOPING");
-                menu.draw(g);
-                isPlaying = true;
-            }
-            }
 
+        }
 
+    }
 
     public void newApple() {
         appleX = rnd.nextInt( (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
