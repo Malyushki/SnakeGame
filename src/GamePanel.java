@@ -17,9 +17,10 @@ public class GamePanel extends JPanel implements ActionListener {
     int appleY = 0;
     char direction = 'R';
     boolean running = false;
+    boolean isPlaying = false;
     Timer timer;
     Random rnd;
-
+GameMenu menu = new GameMenu();
 
     GamePanel() {
         rnd = new Random();
@@ -27,8 +28,6 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setBackground(Color.black);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
-
-        startGame();
 
     }
 
@@ -48,42 +47,52 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void draw(Graphics g) {
-        if (running) {
+
+            if (running) {
           /*  for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
                 g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
                 g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
             }
 
            */
-            g.setColor(Color.red);
-            g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
-            for (int i = 0; i < bodyParts; i++) {
-                if (i == 0) {
-                    g.setColor(Color.ORANGE);
-                    g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
-                } else {
-                    g.setColor(Color.GREEN);
-                    g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                g.setColor(Color.red);
+                g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+                for (int i = 0; i < bodyParts; i++) {
+                    if (i == 0) {
+                        g.setColor(Color.ORANGE);
+                        g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                    } else {
+                        g.setColor(Color.GREEN);
+                        g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
 
+
+                    }
 
                 }
+                //SCORE COUNTER
+                g.setColor(Color.ORANGE);
+                g.setFont(new Font("Sans Serif", Font.BOLD, 30));
+                FontMetrics metrics = getFontMetrics(g.getFont());
+                String score = "Score: " + applesEaten;
+                g.drawString(score, (SCREEN_WIDTH - metrics.stringWidth(score)) / 2, 30);
+
+            } else {
+                gameOver(g);
+
 
             }
-            //SCORE COUNTER
-            g.setColor(Color.ORANGE);
-            g.setFont(new Font("Sans Serif",Font.BOLD,30));
-            FontMetrics metrics = getFontMetrics(g.getFont());
-            String score = "Score: "+applesEaten;
-            g.drawString(score,(SCREEN_WIDTH-metrics.stringWidth(score))/2,30);
-        } else {
-             gameOver(g);
+            if (!isPlaying) {
+                System.out.println("LOOPING");
+                menu.draw(g);
+                isPlaying = true;
+            }
+            }
 
-        }
-    }
+
 
     public void newApple() {
-        appleX = rnd.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
-        appleY = rnd.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+        appleX = rnd.nextInt( (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
+        appleY = rnd.nextInt( (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
 
     }
 
@@ -149,6 +158,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void gameOver(Graphics g) {
         //Game Over text
+
         g.setColor(Color.ORANGE);
         g.setFont(new Font("Sans Serif",Font.BOLD,75));
 FontMetrics metrics = getFontMetrics(g.getFont());
@@ -180,7 +190,11 @@ g.drawString("Game Over",(SCREEN_WIDTH-metrics.stringWidth("Game over"))/2,SCREE
         @Override
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
-                case KeyEvent.VK_LEFT:
+                case  KeyEvent.VK_ENTER:
+
+                    startGame();
+
+                    case KeyEvent.VK_LEFT:
                     if (direction != 'R') {
                         direction = 'L';
                     }
