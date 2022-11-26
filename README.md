@@ -5,15 +5,9 @@ Simple old-school snake game build on JAVA
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)
 * [Screenshots](#screenshots)
-* [Setup](#setup)
-* [Usage](#usage)
-* [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
-<!-- * [License](#license) -->
+* [Controls](#controls)
+
 
 
 ## General Information
@@ -26,14 +20,14 @@ Simple old-school snake game build on JAVA
 
 
 ## Screenshots
+<img src="https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/StartGame.jpg" width="300" height="300" />
+<img src="https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/GameRun.jpg" width="300" height="300" />
+<img src="https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/GameOver.jpg" width="300" height="300" />
 
-![GameOver](https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/StartGame.jpg)
-![GameRun](https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/GameRun.jpg)
-![GameOver](https://github.com/Malyushki/SnakeGame/blob/main/img/GameOver.jpg)
 
 
 
 ## Controls
-- to Start Game press Enter
-- use arrow keys to move the snake
+- To Start Game press Enter
+- Use arrow keys to move the snake
 
