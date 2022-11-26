@@ -7,6 +7,7 @@ Simple old-school snake game build on JAVA
 * [Technologies Used](#technologies-used)
 * [Screenshots](#screenshots)
 * [Controls](#controls)
+* [Download](#download)
 
 
 
@@ -30,4 +31,7 @@ Simple old-school snake game build on JAVA
 ## Controls
 - To Start Game press Enter
 - Use arrow keys to move the snake
+
+##Download
+- https://gamejolt.com/games/SnakeGame/764888
 
