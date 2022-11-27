@@ -21,10 +21,11 @@ Simple old-school snake game build on JAVA
 
 
 ## Screenshots
+<p float="left">
 <img src="https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/StartGame.jpg" width="300" height="300" />
 <img src="https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/GameRun.jpg" width="300" height="300" />
 <img src="https://raw.githubusercontent.com/Malyushki/SnakeGame/main/img/GameOver.jpg" width="300" height="300" />
-
+</p>
 
 
 
